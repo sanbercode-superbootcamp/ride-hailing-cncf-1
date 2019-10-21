@@ -1,0 +1,33 @@
+version: '2'
+
+services: 
+  rider:
+    image: lussa/ridehailing
+    environment:
+      MONITORING_PORT: "3002"
+      POSITION_PORT: "3001"
+      TRACKER_PORT: "3000"
+      POSTGRES_HOST: postgres
+      NATS_URL: "nats://nats:4222"
+    ports:
+      - 3000:3000
+      - 3001:3001
+      - 3002:3002
+
+  nats:
+    image: nats:1.1.0-linux
+    container_name: nats
+
+  postgres:
+    image: postgres:9.5
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ridehailing
+    volumes: 
+      - pgdata:/var/lib/postgresql/data
+
+volumes: 
+  pgdata:
+    driver: local
