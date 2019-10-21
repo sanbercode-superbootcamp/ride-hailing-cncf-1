@@ -4,8 +4,6 @@ a cloud native build of ride hailing applications
 
 ## Tugas
 
-Modifikasi Dockerfile sehingga
-
 Modifikasi compose file untuk `ride hailing` service mesh yang tediri dari service-service berikut. Gunakan image yg sama untuk service `track`, `position` & `monitoring`
 
 1. track 
